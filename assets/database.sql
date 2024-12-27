@@ -1,0 +1,19 @@
+CREATE DATABASE IF NOT EXISTS myfinances;
+
+USE myfinances;
+
+CREATE TABLE IF NOT EXISTS bills (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY, 
+    description VARCHAR(255) NOT NULL,
+    value DOUBLE NOT NULL,
+    due_date DATE NOT NULL,
+    payment_date DATE,
+    is_paid BOOLEAN NOT NULL,
+    category ENUM('FOOD', 'TRANSPORT', 'HEALTH', 'EDUCATION', 'LEISURE', 'OTHERS') NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS users (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY, 
+    username VARCHAR(255) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL
+);
