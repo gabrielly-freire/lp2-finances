@@ -27,7 +27,7 @@ public class DatabaseConnection {
         if (conn == null) {
             try {
                 // Credenciais para conexão com o banco de dados
-                String url = "jdbc:mysql://localhost:3306/library_db";
+                String url = "jdbc:mysql://localhost:3306/myfinances";
                 String user = "root";
                 String password = "Password123#@!";
 
