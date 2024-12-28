@@ -16,3 +16,7 @@ build/**/*
 /out/
 
 target/**
+
+## VS Code
+.vscode/
+.vscode/**/*
