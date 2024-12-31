@@ -31,10 +31,11 @@ public class UserDAOImpl implements UserDAO {
      */
     @Override
     public void create(User user) {
-        String sql = "INSERT INTO users (username, password) VALUES (?, ?)";
+        String sql = "INSERT INTO users (username, password, id_person) VALUES (?, ?, ?)";
         try (PreparedStatement stmt = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
             stmt.setString(1, user.getUsername());
             stmt.setString(2, user.getPassword());
+            stmt.setLong(3, user.getIdPerson());
             stmt.executeUpdate();
 
             try (ResultSet generatedKeys = stmt.getGeneratedKeys()) {
@@ -65,7 +66,8 @@ public class UserDAOImpl implements UserDAO {
                 user = new User(
                         rs.getLong("id"),
                         rs.getString("username"),
-                        rs.getString("password"));
+                        rs.getString("password"),
+                        rs.getLong("id_person"));
             }
         } catch (SQLException e) {
             throw new DatabaseException("Erro ao buscar usuário por ID: " + e.getMessage());
@@ -95,6 +97,7 @@ public class UserDAOImpl implements UserDAO {
                 user.setId(rs.getLong("id"));
                 user.setUsername(rs.getString("username"));
                 user.setPassword(rs.getString("password"));
+                user.setIdPerson(rs.getLong("id_person"));
 
                 return user;
             }
@@ -133,7 +136,8 @@ public class UserDAOImpl implements UserDAO {
                 User user = new User(
                         rs.getLong("id"),
                         rs.getString("username"),
-                        rs.getString("password"));
+                        rs.getString("password"),
+                        rs.getLong("id_person"));
                 users.add(user);
             }
         } catch (SQLException e) {
@@ -145,7 +149,7 @@ public class UserDAOImpl implements UserDAO {
     /**
      * Method that updates a user in the database.
      * 
-     * @param id ID of the user to be updated
+     * @param id   ID of the user to be updated
      * @param user User to be updated
      * @throws DatabaseException if an error occurs while updating the user
      */

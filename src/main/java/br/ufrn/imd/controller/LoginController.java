@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import br.ufrn.imd.App;
 import br.ufrn.imd.service.PasswordService;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
@@ -62,4 +63,23 @@ public class LoginController {
        });
     }
 
+    @FXML
+    private void openCreateUserScreen(ActionEvent event) {
+        try {
+            App.setRoot("createUser.fxml");
+
+        } catch (IOException e) {
+            e.printStackTrace(); 
+        }
+    }
+
+    @FXML
+    private void openForgetPasswordScreen(ActionEvent event) {
+        try {
+            App.setRoot("forgetPassword.fxml");
+
+        } catch (IOException e) {
+            e.printStackTrace(); 
+        }
+    }
 }

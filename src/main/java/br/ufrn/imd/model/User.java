@@ -11,14 +11,16 @@ public class User extends Person {
     private Long id;
     private String username;
     private String password;
+    private Long idPerson;
 
     public User() {
     }
 
-    public User(Long id, String username, String password) {
+    public User(Long id, String username, String password, Long idPerson) {
         this.id = id;
         this.username = username;
         this.password = password;
+        this.idPerson = idPerson;
     }
 
     public Long getId() {
@@ -43,6 +45,14 @@ public class User extends Person {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public Long getIdPerson() {
+        return idPerson;
+    }
+
+    public void setIdPerson(Long idPerson) {
+        this.idPerson = idPerson;
     }
 
     @Override

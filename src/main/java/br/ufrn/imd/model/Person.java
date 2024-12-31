@@ -8,7 +8,7 @@ import java.time.LocalDate;
  * @author Gabrielly Freire
  * @version 1.0
  */
-public abstract class Person {
+public class Person {
     
     private Long id;
     private String name;
