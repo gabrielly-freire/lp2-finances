@@ -16,20 +16,15 @@ public class UserService {
         this.passwordService = new PasswordService();
     }
 
-
     public void create(User user, Person person){
-        System.out.println("Validando");
         validateUsername(user.getUsername());
-        System.out.println("Validou");
 
         Long idPerson = personDAO.create(person);
-        System.out.println("Id pessoa: "+idPerson);
         String password = passwordService.hashPassword(user.getPassword());
         user.setIdPerson(idPerson);
         user.setPassword(password);
 
         userDAO.create(user);
-        System.out.println("criou");
     }
 
     public void resetPassword(String username, String password){
