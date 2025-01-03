@@ -4,6 +4,7 @@ import br.ufrn.imd.dao.BillDAOImpl;
 import br.ufrn.imd.exception.ResourceNotFoundException;
 import br.ufrn.imd.model.Bill;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -61,7 +62,7 @@ public class BillService {
         List<Bill> bills = billDAO.findAll();
 
         if (bills == null || bills.isEmpty()) {
-            throw new ResourceNotFoundException("Nenhuma fatura encontrada.");
+            return new ArrayList<Bill>();
         }
 
         return bills;
