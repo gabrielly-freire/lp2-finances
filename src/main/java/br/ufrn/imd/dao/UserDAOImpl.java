@@ -104,19 +104,8 @@ public class UserDAOImpl implements UserDAO {
         } catch (SQLException e) {
             System.err.println("Erro ao buscar usuário: " + e.getMessage());
             throw new DatabaseException("Erro ao buscar usuário: " + e.getMessage());
-        } finally {
-            try {
-                if (rs != null) {
-                    rs.close();
-                }
-                if (ps != null) {
-                    ps.close();
-                }
-            } catch (SQLException e) {
-                System.err.println("Erro ao fechar recursos: " + e.getMessage());
-                throw new DatabaseException("Erro ao fechar recursos: " + e.getMessage());
-            }
-        }
+        } 
+        
         return null;
     }
 

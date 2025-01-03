@@ -32,8 +32,8 @@ public class BillDAOImpl implements BillDAO {
     @Override
     public void create(Bill bill) {
         String sql = "INSERT INTO bills (description, value, due_date, payment_date, is_paid, category) VALUES (?, ?, ?, ?, ?, ?)";
-        try (connection;
-                PreparedStatement stmt = connection.prepareStatement(sql)) {
+        try (PreparedStatement stmt = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
+
             stmt.setString(1, bill.getDescription());
             stmt.setDouble(2, bill.getValue());
             stmt.setDate(3, Date.valueOf(bill.getDueDate()));
@@ -41,6 +41,12 @@ public class BillDAOImpl implements BillDAO {
             stmt.setBoolean(5, bill.getIsPaid());
             stmt.setString(6, bill.getCategory().name());
             stmt.executeUpdate();
+
+            try (ResultSet generatedKeys = stmt.getGeneratedKeys()) {
+                if (generatedKeys.next()) {
+                    bill.setId(generatedKeys.getLong(1));
+                }
+            }
         } catch (SQLException e) {
             throw new DatabaseException("Erro ao criar fatura: " + e.getMessage());
         }
@@ -57,8 +63,7 @@ public class BillDAOImpl implements BillDAO {
     public Bill findById(Long id) {
         Bill bill = null;
         String sql = "SELECT * FROM bills WHERE id = ?";
-        try (connection;
-                PreparedStatement stmt = connection.prepareStatement(sql)) {
+        try (PreparedStatement stmt = connection.prepareStatement(sql)) {
             stmt.setLong(1, id);
             ResultSet rs = stmt.executeQuery();
             if (rs.next()) {
@@ -87,8 +92,7 @@ public class BillDAOImpl implements BillDAO {
     public List<Bill> findAll() {
         List<Bill> bills = new ArrayList<>();
         String sql = "SELECT * FROM bills";
-        try (connection;
-                Statement stmt = connection.createStatement();
+        try (Statement stmt = connection.createStatement();
                 ResultSet rs = stmt.executeQuery(sql)) {
             while (rs.next()) {
                 Bill bill = new Bill(
@@ -110,15 +114,14 @@ public class BillDAOImpl implements BillDAO {
     /**
      * Method that updates a bill in the database.
      * 
-     * @param id The ID of the bill to be updated.
+     * @param id   The ID of the bill to be updated.
      * @param bill The bill with the new data.
      * @throws DatabaseException If an error occurs while updating the bill.
      */
     @Override
     public void update(Long id, Bill bill) {
         String sql = "UPDATE bills SET description = ?, value = ?, due_date = ?, payment_date = ?, is_paid = ?, category = ? WHERE id = ?";
-        try (connection;
-                PreparedStatement stmt = connection.prepareStatement(sql)) {
+        try (PreparedStatement stmt = connection.prepareStatement(sql)) {
             stmt.setString(1, bill.getDescription());
             stmt.setDouble(2, bill.getValue());
             stmt.setDate(3, Date.valueOf(bill.getDueDate()));
@@ -141,8 +144,7 @@ public class BillDAOImpl implements BillDAO {
     @Override
     public void delete(Long id) {
         String sql = "DELETE FROM bills WHERE id = ?";
-        try (connection;
-                PreparedStatement stmt = connection.prepareStatement(sql)) {
+        try (PreparedStatement stmt = connection.prepareStatement(sql)) {
             stmt.setLong(1, id);
             stmt.executeUpdate();
         } catch (SQLException e) {
