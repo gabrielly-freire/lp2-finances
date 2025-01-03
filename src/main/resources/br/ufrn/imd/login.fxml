@@ -7,14 +7,15 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrn.imd.controller.LoginController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="1200.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrn.imd.controller.LoginController">
    <children>
-      <Label layoutX="282.0" layoutY="68.0" text="Login" />
-      <Label layoutX="157.0" layoutY="152.0" text="username" />
-      <Label layoutX="168.0" layoutY="192.0" text="password" />
-      <PasswordField fx:id="passwordField" layoutX="251.0" layoutY="188.0" />
-      <TextField fx:id="usernameField" layoutX="251.0" layoutY="148.0" />
-      <Button fx:id="loginButton" layoutX="259.0" layoutY="273.0" mnemonicParsing="false" onAction="#login" text="Login" />
-      <Hyperlink layoutX="247.0" layoutY="318.0" text="Cadastra-se" />
+      <Label fx:id="loginLabel" layoutX="538.0" layoutY="128.0" styleClass="title" text="Login" />
+      <Label layoutX="333.0" layoutY="320.0" text="Username" />
+      <Label layoutX="335.0" layoutY="392.0" text="Password" />
+      <PasswordField fx:id="passwordField" layoutX="475.0" layoutY="384.0" />
+      <TextField fx:id="usernameField" layoutX="475.0" layoutY="313.0" />
+      <Button fx:id="loginButton" layoutX="525.0" layoutY="530.0" mnemonicParsing="false" onAction="#login" text="Login" />
+      <Hyperlink layoutX="552.0" layoutY="587.0" onAction="#openCreateUserScreen" text="Cadastra-se" />
+      <Hyperlink layoutX="530.0" layoutY="629.0" onAction="#openForgetPasswordScreen" text="Esqueceu a senha" />
    </children>
 </AnchorPane>

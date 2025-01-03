@@ -7,27 +7,27 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="638.0" prefWidth="795.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrn.imd.controller.CreateUserController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="1200.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrn.imd.controller.LoginController">
    <children>
-      <Label layoutX="352.0" layoutY="69.0" text="Cadastro de Usuario" />
-      <Label layoutX="97.0" layoutY="137.0" text="Name" />
-      <Label layoutX="99.0" layoutY="182.0" text="CPF" />
-      <Label layoutX="83.0" layoutY="226.0" text="Birth Date" />
-      <Label layoutX="88.0" layoutY="271.0" text="Address" />
-      <Label layoutX="94.0" layoutY="311.0" text="Phone" />
-      <Label layoutX="247.0" layoutY="108.0" text="Dados Pessoais" />
-      <Label layoutX="223.0" layoutY="369.0" text="Dados de acesso" />
-      <Label layoutX="99.0" layoutY="405.0" text="Username" />
-      <Label layoutX="93.0" layoutY="443.0" text="Password" />
-      <Label layoutX="87.0" layoutY="484.0" text="Repeat password" />
-      <PasswordField fx:id="password1Field" layoutX="212.0" layoutY="439.0" />
-      <PasswordField fx:id="password2Field" layoutX="212.0" layoutY="480.0" />
-      <TextField fx:id="usernameField" layoutX="212.0" layoutY="401.0" />
-      <TextField fx:id="addressField" layoutX="177.0" layoutY="267.0" />
-      <TextField fx:id="phoneField" layoutX="177.0" layoutY="307.0" />
-      <TextField fx:id="nameField" layoutX="181.0" layoutY="141.0" />
-      <TextField fx:id="cpfField" layoutX="181.0" layoutY="178.0" />
-      <DatePicker fx:id="birthDateField" layoutX="180.0" layoutY="222.0" />
-      <Button fx:id="submitButton" layoutX="347.0" layoutY="558.0" mnemonicParsing="false" text="submit" onAction="#create" />
+      <Label layoutX="400.0" layoutY="50.0" styleClass="title" text="User Registration" />
+      <Label layoutX="350.0" layoutY="150.0" text="Name" />
+      <Label layoutX="350.0" layoutY="220.0" text="CPF" />
+      <Label layoutX="350.0" layoutY="290.0" text="Date of Birth" />
+      <Label layoutX="350.0" layoutY="360.0" text="Address" />
+      <Label layoutX="350.0" layoutY="430.0" text="Phone" />
+      <Label layoutX="500.0" layoutY="120.0" styleClass="section-title" text="Personal Information" />
+      <Label layoutX="500.0" layoutY="500.0" styleClass="section-title" text="Login Information" />
+      <Label layoutX="350.0" layoutY="578.0" text="Username" />
+      <Label layoutX="342.0" layoutY="648.0" text="Password" />
+      <Label layoutX="330.0" layoutY="718.0" text="Repeat Password" />
+      <TextField fx:id="nameField" layoutX="500.0" layoutY="150.0" prefWidth="300.0" />
+      <TextField fx:id="cpfField" layoutX="500.0" layoutY="220.0" prefWidth="300.0" />
+      <DatePicker fx:id="birthDateField" layoutX="500.0" layoutY="290.0" prefWidth="300.0" />
+      <TextField fx:id="addressField" layoutX="500.0" layoutY="360.0" prefWidth="300.0" />
+      <TextField fx:id="phoneField" layoutX="500.0" layoutY="430.0" prefWidth="300.0" />
+      <TextField fx:id="usernameField" layoutX="500.0" layoutY="570.0" prefWidth="300.0" />
+      <PasswordField fx:id="password1Field" layoutX="500.0" layoutY="640.0" prefWidth="300.0" />
+      <PasswordField fx:id="password2Field" layoutX="500.0" layoutY="710.0" prefWidth="300.0" />
+      <Button fx:id="submitButton" layoutX="560.0" layoutY="780.0" mnemonicParsing="false" onAction="#create" text="Submit" />
    </children>
 </AnchorPane>

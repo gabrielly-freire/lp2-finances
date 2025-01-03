@@ -28,7 +28,7 @@ public class App extends Application {
         }
 
         Parent root =  loadFXML("login.fxml");
-        scene = new Scene(root, 640, 480);
+        scene = new Scene(root, 1200, 1000);
         stage.setScene(scene);
         stage.show();
     }

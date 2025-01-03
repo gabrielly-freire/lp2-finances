@@ -70,7 +70,7 @@ public class ForgetPasswordController {
             alert.showAndWait();
 
             try {
-                App.setRoot("login/login.fxml");
+                App.setRoot("login.fxml");
             } catch (Exception e1) {
                 e1.printStackTrace();
             }

@@ -1,0 +1,57 @@
+.root {
+    -fx-background-color: #f0f0f0;
+}
+
+/* Estilizando as Labels */
+.label {
+    -fx-font-size: 16px;
+    -fx-text-fill: #333;
+    -fx-font-weight: bold;
+}
+
+
+/* Estilizando os TextFields */
+.text-field, .password-field {
+    -fx-font-size: 14px;
+    -fx-pref-width: 250px;
+    -fx-pref-height: 35px;
+    -fx-background-color: #fff;
+    -fx-border-color: #ccc;
+    -fx-border-radius: 5px;
+    -fx-padding: 0 10px;
+    -fx-focus-color: #4a90e2;
+}
+
+/* Estilizando o botão de login */
+.button {
+    -fx-background-color: #4a90e2;
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-pref-width: 150px;
+    -fx-pref-height: 40px;
+    -fx-border-radius: 5px;
+    -fx-cursor: hand;
+}
+
+/* Alterando a aparência do botão ao passar o mouse */
+.button:hover {
+    -fx-background-color: #357ab7;
+}
+
+/* Estilizando o Hyperlink */
+.hyperlink {
+    -fx-font-size: 14px;
+    -fx-text-fill: #4a90e2;
+    -fx-padding: 5px;
+}
+
+/* Alterando a aparência do Hyperlink ao passar o mouse */
+.hyperlink:hover {
+    -fx-text-fill: #357ab7;
+}
+
+.title {
+    -fx-font-size: 40px; 
+    -fx-font-weight: bold;
+    -fx-text-fill: #333;
+}

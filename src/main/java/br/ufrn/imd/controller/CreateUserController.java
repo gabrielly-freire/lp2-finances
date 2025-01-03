@@ -69,7 +69,7 @@ public class CreateUserController {
 
         try {
             userService.create(user, person);
-            App.setRoot("login/login.fxml");
+            App.setRoot("login.fxml");
         } catch (Exception ex) {
             Alert alert = new Alert(AlertType.ERROR);
             alert.setTitle("Erro");
