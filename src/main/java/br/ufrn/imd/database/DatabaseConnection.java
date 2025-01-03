@@ -24,7 +24,7 @@ public class DatabaseConnection {
      * @return
      */
     public static Connection getConnection() {
-        if (conn == null) {
+        if (conn == null || isClosed()) {
             try {
                 // Credenciais para conexão com o banco de dados
                 String url = "jdbc:mysql://localhost:3306/myfinances";
@@ -39,6 +39,19 @@ public class DatabaseConnection {
         return conn;
     }
 
+    /**
+     * This method is responsible for checking if the connection with the database is closed.
+     * @throws DatabaseException if an error occurs while trying to check if the connection is closed.
+     * @return
+     */
+    private static boolean isClosed() {
+        try {
+            return conn.isClosed();
+        } catch (SQLException e) {
+            throw new DatabaseException(e.getMessage());
+        }
+    }
+    
     /**
      * This method is responsible for closing the connection with the database.
      * @throws DatabaseException if an error occurs while trying to close the connection.
