@@ -1,23 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="847.0" prefWidth="1018.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrn.imd.controller.ListBillsController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="1200.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrn.imd.controller.ListBillsController">
    <children>
-      <TableView fx:id="billsTable" layoutX="67.0" layoutY="183.0" prefHeight="560.0" prefWidth="850.0">
+      <TableView fx:id="billsTable" layoutX="139.0" layoutY="202.0" prefHeight="621.0" prefWidth="923.0">
          <columns>
             <TableColumn fx:id="descriptionColumn" prefWidth="135.0" text="Description" />
             <TableColumn fx:id="valueColumn" prefWidth="87.0" text="Value" />
             <TableColumn fx:id="dueDateColumn" prefWidth="98.0" text="Due Date" />
-            <TableColumn fx:id="paymentDateColumn" prefWidth="120.0" text="Payment Date" />
-            <TableColumn fx:id="isPaidColumn" prefWidth="89.0" text="Paid" />
-            <TableColumn fx:id="categoryColumn" prefWidth="100.0" text="Category" />
-            <TableColumn fx:id="actionsColumn" prefWidth="220.0" text="Actions" />
+            <TableColumn fx:id="paymentDateColumn" prefWidth="143.0" text="Payment Date" />
+            <TableColumn fx:id="isPaidColumn" prefWidth="75.0" text="Paid" />
+            <TableColumn fx:id="categoryColumn" prefWidth="125.0" text="Category" />
+            <TableColumn fx:id="actionsColumn" prefWidth="259.0" text="Actions" />
          </columns>
       </TableView>
-      <Button fx:id="registerBillButton" layoutX="478.0" layoutY="783.0" mnemonicParsing="false" text="Register Bills" />
+      <Button fx:id="registerBillButton" layoutX="546.0" layoutY="893.0" mnemonicParsing="false" text="Register Bills" />
+      <Label layoutX="504.0" layoutY="81.0" styleClass="title" text="List Bills" />
+      <Button fx:id="logoutButton" layoutX="832.0" layoutY="893.0" mnemonicParsing="false" text="Logout" />
+      <Button fx:id="dashboardButton" layoutX="240.0" layoutY="893.0" mnemonicParsing="false" text="Dashboard" />
    </children>
 </AnchorPane>

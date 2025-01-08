@@ -4,10 +4,11 @@
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="1200.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrn.imd.controller.LoginController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="1200.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrn.imd.controller.CreateUserController">
    <children>
       <Label layoutX="400.0" layoutY="50.0" styleClass="title" text="User Registration" />
       <Label layoutX="350.0" layoutY="150.0" text="Name" />
@@ -16,18 +17,19 @@
       <Label layoutX="350.0" layoutY="360.0" text="Address" />
       <Label layoutX="350.0" layoutY="430.0" text="Phone" />
       <Label layoutX="500.0" layoutY="120.0" styleClass="section-title" text="Personal Information" />
-      <Label layoutX="500.0" layoutY="500.0" styleClass="section-title" text="Login Information" />
+      <Label layoutX="500.0" layoutY="517.0" styleClass="section-title" text="Login Information" />
       <Label layoutX="350.0" layoutY="578.0" text="Username" />
       <Label layoutX="342.0" layoutY="648.0" text="Password" />
       <Label layoutX="330.0" layoutY="718.0" text="Repeat Password" />
       <TextField fx:id="nameField" layoutX="500.0" layoutY="150.0" prefWidth="300.0" />
       <TextField fx:id="cpfField" layoutX="500.0" layoutY="220.0" prefWidth="300.0" />
-      <DatePicker fx:id="birthDateField" layoutX="500.0" layoutY="290.0" prefWidth="300.0" />
+      <DatePicker fx:id="birthDateField" layoutX="500.0" layoutY="290.0" prefHeight="35.0" prefWidth="250.0" />
       <TextField fx:id="addressField" layoutX="500.0" layoutY="360.0" prefWidth="300.0" />
       <TextField fx:id="phoneField" layoutX="500.0" layoutY="430.0" prefWidth="300.0" />
       <TextField fx:id="usernameField" layoutX="500.0" layoutY="570.0" prefWidth="300.0" />
       <PasswordField fx:id="password1Field" layoutX="500.0" layoutY="640.0" prefWidth="300.0" />
       <PasswordField fx:id="password2Field" layoutX="500.0" layoutY="710.0" prefWidth="300.0" />
-      <Button fx:id="submitButton" layoutX="560.0" layoutY="780.0" mnemonicParsing="false" onAction="#create" text="Submit" />
+      <Button fx:id="submitButton" layoutX="558.0" layoutY="807.0" mnemonicParsing="false" onAction="#create" text="Submit" />
+      <Separator layoutX="236.0" layoutY="499.0" prefHeight="0.0" prefWidth="766.0" />
    </children>
 </AnchorPane>
