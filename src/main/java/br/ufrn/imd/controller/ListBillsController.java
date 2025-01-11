@@ -11,12 +11,16 @@ import br.ufrn.imd.service.BillService;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.HBox;
+import javafx.stage.Stage;
 import javafx.util.Callback;
 
 public class ListBillsController {
@@ -45,12 +49,16 @@ public class ListBillsController {
     @FXML
     private TableColumn<Bill, Void> actionsColumn;
 
-
     @FXML
     private Button registerBillButton;
 
-    private BillService billService = new BillService();
+    @FXML
+    private Button logoutButton;
 
+    @FXML
+    private Button dashboardButton;
+
+    private final BillService billService = new BillService();
 
     @FXML
     public void initialize() {
@@ -67,18 +75,20 @@ public class ListBillsController {
                 return new TableCell<>() {
                     private final Button updateButton = new Button("Update");
                     private final Button deleteButton = new Button("Delete");
-                    private final HBox actionButtons = new HBox(updateButton, deleteButton);
+                    private final HBox actionButtons = new HBox(10, updateButton, deleteButton);
 
                     {
                         updateButton.setOnAction(event -> {
                             Bill bill = getTableView().getItems().get(getIndex());
-                            billService.updateBill(bill.getId(), bill);
+                            openEditBillScreen(bill);
                         });
 
                         deleteButton.setOnAction(event -> {
                             Bill bill = getTableView().getItems().get(getIndex());
-                            getTableView().getItems().remove(bill);
-                            billService.deleteBill(bill.getId());
+                            if (bill != null) {
+                                billService.deleteBill(bill.getId());
+                                refreshTable();
+                            }
                         });
                     }
 
@@ -95,20 +105,62 @@ public class ListBillsController {
             }
         });
 
+        refreshTable();
+
+        registerBillButton.setOnAction(event -> openCreateBillScreen());
+        logoutButton.setOnAction(event -> openLoginScreen());
+        dashboardButton.setOnAction(event -> openDashboardScreen());
+    }
+
+    private void refreshTable() {
         List<Bill> billsList = billService.findAllBills();
         ObservableList<Bill> billsObservable = FXCollections.observableArrayList(billsList);
         billsTable.setItems(billsObservable);
+    }
 
-        registerBillButton.setOnAction(event -> openCreateBillScreen());
+    private void openDashboardScreen() {
+        try {
+            App.setRoot("dashboard.fxml");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     private void openCreateBillScreen() {
         try {
             App.setRoot("createBill.fxml");
-
         } catch (IOException e) {
-            e.printStackTrace(); 
+            e.printStackTrace();
         }
     }
 
+    private void openLoginScreen() {
+        try {
+            App.setRoot("login.fxml");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void openEditBillScreen(Bill bill) {
+        try {
+            FXMLLoader loader = new FXMLLoader(App.class.getResource("updateBill.fxml"));
+            Parent root = loader.load();
+
+            UpdateBillController updateBillController = loader.getController();
+
+            updateBillController.setBill(bill);
+
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Editar Fatura");
+            stage.showAndWait();
+
+            refreshTable();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

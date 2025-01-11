@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="1200.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrn.imd.controller.UpdateBillController">
+   <children>
+      <Label layoutX="443.0" layoutY="91.0" styleClass="title" text="Update Bill" />
+      <Label layoutX="336.0" layoutY="284.0" text="Description" />
+      <Label layoutX="347.0" layoutY="353.0" text="Value" />
+      <Label layoutX="332.0" layoutY="425.0" text="Due data" />
+      <Label layoutX="325.0" layoutY="490.0" text="Payment data" />
+      <Label layoutX="338.0" layoutY="550.0" text="Is payment" />
+      <Label layoutX="347.0" layoutY="621.0" text="Category" />
+      <DatePicker fx:id="dueDataField" layoutX="494.0" layoutY="417.0" prefHeight="35.0" prefWidth="250.0" />
+      <DatePicker fx:id="paymentDataField" layoutX="494.0" layoutY="483.0" prefHeight="35.0" prefWidth="250.0" />
+      <TextField fx:id="descriptionField" layoutX="494.0" layoutY="277.0" />
+      <Button fx:id="updateButton" layoutX="451.0" layoutY="749.0" mnemonicParsing="false" onAction="#updateBill" text="Update" />
+      <Button fx:id="cancelButton" layoutX="650.0" layoutY="749.0" mnemonicParsing="false" onAction="#cancelUpdate" text="Cancel" />
+
+      <TextField fx:id="valueField" layoutX="494.0" layoutY="346.0" prefWidth="277.0" />
+      <ToggleButton fx:id="isPagoToggleButton" layoutX="494.0" layoutY="548.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="250.0" text="false" wrapText="true" />
+      <ChoiceBox fx:id="categoryChoiceBox" layoutX="494.0" layoutY="616.0" prefHeight="30.0" prefWidth="250.0" />
+   </children>
+</AnchorPane>

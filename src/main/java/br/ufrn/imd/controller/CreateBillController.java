@@ -43,6 +43,8 @@ public class CreateBillController {
     @FXML
     public void initialize() {
         categoryChoiceBox.getItems().setAll(Category.values());
+
+        isPagoToggleButton.setOnAction(event -> toggleIsPago());
     }
 
     @FXML
@@ -98,5 +100,10 @@ public class CreateBillController {
         } catch (IOException e) {
             e.printStackTrace(); 
         }
+    }
+
+    private void toggleIsPago() {
+        boolean currentState = isPagoToggleButton.isSelected();
+        isPagoToggleButton.setText(String.valueOf(currentState));
     }
 }

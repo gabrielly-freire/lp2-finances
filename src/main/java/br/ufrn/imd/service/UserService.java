@@ -32,6 +32,7 @@ public class UserService {
         String criptPassword = passwordService.hashPassword(password);
 
         user.setPassword(criptPassword);
+        userDAO.update(user.getId(), user);
     }
 
     public User findByUsername(String username){
