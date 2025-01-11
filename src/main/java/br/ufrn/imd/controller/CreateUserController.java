@@ -42,7 +42,16 @@ public class CreateUserController {
     @FXML
     private TextField usernameField;
 
+    @FXML
+    private Button cancelButton;
+
     private UserService userService = new UserService();
+
+    @FXML
+    public void initialize() {
+        submitButton.setOnAction(e -> create());
+        cancelButton.setOnAction(e -> openLoginScreen());
+    }
 
     @FXML
     public void create() {
@@ -55,6 +64,17 @@ public class CreateUserController {
         String password2 = password2Field.getText();
         String username = usernameField.getText();
 
+        if (address.isEmpty() || birthDate == null || cpf.isEmpty() || name.isEmpty() || phone.isEmpty()
+                || password1.isEmpty() || password2.isEmpty() || username.isEmpty()) {
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("Informação");
+            alert.setHeaderText("Cadastro não realizado");
+            alert.setContentText("Preencha todos os campos");
+            alert.showAndWait();
+            return;
+            
+        }
+
         if (!password1.equals(password2)) {
             Alert alert = new Alert(AlertType.ERROR);
             alert.setTitle("Informação");
@@ -64,17 +84,37 @@ public class CreateUserController {
             return;
         }
 
+        if(userService.findByUsername(username) != null) {
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("Informação");
+            alert.setHeaderText("Cadastro não realizado");
+            alert.setContentText("Usuário já cadastrado");
+            alert.showAndWait();
+            return;
+        }
+
         Person person = new Person(null, name, cpf, birthDate, address, phone);
         User user = new User(null, username, password2, null);
 
+        userService.create(user, person);
+
+        Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Informação");
+        alert.setHeaderText("Cadastro realizado");
+        alert.setContentText("Usuário cadastrado com sucesso");
+        alert.showAndWait();
+        openLoginScreen();
+
+    }
+
+    private void openLoginScreen() {
         try {
-            userService.create(user, person);
             App.setRoot("login.fxml");
-        } catch (Exception ex) {
+        } catch (Exception e) {
             Alert alert = new Alert(AlertType.ERROR);
             alert.setTitle("Erro");
             alert.setHeaderText("Erro ao criar usuário");
-            alert.setContentText("Detalhes: " + ex.getMessage());
+            alert.setContentText("Detalhes: " + e.getMessage());
             alert.showAndWait();
         }
     }

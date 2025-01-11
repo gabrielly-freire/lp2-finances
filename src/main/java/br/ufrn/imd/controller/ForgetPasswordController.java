@@ -23,57 +23,68 @@ public class ForgetPasswordController {
     @FXML
     private TextField usernameField;
 
+    @FXML
+    private Button cancelButton;
+
     private UserService userService = new UserService();
 
     @FXML
+    public void initialize() {
+        sumitButton.setOnAction(e -> changePassword());
+        cancelButton.setOnAction(e -> openLoginScreen());
+    }
+
+    @FXML
     public void changePassword() {
-        sumitButton.setOnAction(e -> {
-            String password1 = password1Field.getText();
-            String password2 = password2Field.getText();
-            String username = usernameField.getText();
+        String password1 = password1Field.getText();
+        String password2 = password2Field.getText();
+        String username = usernameField.getText();
 
-            if (!password1.equals(password2)) {
-                Alert alert = new Alert(AlertType.ERROR);
-                alert.setTitle("Informação");
-                alert.setHeaderText("Erro ao alterar senha");
-                alert.setContentText("As senhas não coincidem");
-                alert.showAndWait();
-                return;
-            }
-
-            if (password1.isEmpty() || password2.isEmpty() || username.isEmpty()) {
-                Alert alert = new Alert(AlertType.ERROR);
-                alert.setTitle("Informação");
-                alert.setHeaderText("Erro ao alterar senha");
-                alert.setContentText("Preencha todos os campos");
-                alert.showAndWait();
-                return;
-            }
-
-            User user = userService.findByUsername(username);
-            if (user == null) {
-                Alert alert = new Alert(AlertType.ERROR);
-                alert.setTitle("Informação");
-                alert.setHeaderText("Erro ao alterar senha");
-                alert.setContentText("Usuário não encontrado");
-                alert.showAndWait();
-                return;
-            }
-
-            user.setPassword(password1);
-            userService.resetPassword(username, password2);
-
-            Alert alert = new Alert(AlertType.INFORMATION);
+        if (!password1.equals(password2)) {
+            Alert alert = new Alert(AlertType.ERROR);
             alert.setTitle("Informação");
-            alert.setHeaderText("Senha alterada com sucesso");
-            alert.setContentText("Sua senha foi alterada com sucesso");
+            alert.setHeaderText("Erro ao alterar senha");
+            alert.setContentText("As senhas não coincidem");
             alert.showAndWait();
+            return;
+        }
 
-            try {
-                App.setRoot("login.fxml");
-            } catch (Exception e1) {
-                e1.printStackTrace();
-            }
-        });
+        if (password1.isEmpty() || password2.isEmpty() || username.isEmpty()) {
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("Informação");
+            alert.setHeaderText("Erro ao alterar senha");
+            alert.setContentText("Preencha todos os campos");
+            alert.showAndWait();
+            return;
+        }
+
+        User user = userService.findByUsername(username);
+        if (user == null) {
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("Informação");
+            alert.setHeaderText("Erro ao alterar senha");
+            alert.setContentText("Usuário não encontrado");
+            alert.showAndWait();
+            return;
+        }
+
+        user.setPassword(password1);
+        userService.resetPassword(username, password2);
+
+        Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Informação");
+        alert.setHeaderText("Senha alterada com sucesso");
+        alert.setContentText("Sua senha foi alterada com sucesso");
+        alert.showAndWait();
+
+        openLoginScreen();
+    }
+
+    private void openLoginScreen() {
+        try {
+            App.setRoot("login.fxml");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

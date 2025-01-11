@@ -46,12 +46,7 @@ public class LoginController {
             }
             
             if (passwordService.validateLogin(username, password)) {
-               try {
-                    App.setRoot("listBill.fxml");
-
-                } catch (IOException ex) {
-                    System.out.println("Erro ao carregar a próxima tela: " + ex.getMessage());
-                }
+                openListBillsScreen();
             } else {
                 Alert alert = new Alert(AlertType.INFORMATION);
                 alert.setTitle("Informação");
@@ -80,6 +75,15 @@ public class LoginController {
 
         } catch (IOException e) {
             e.printStackTrace(); 
+        }
+    }
+
+    @FXML
+    private void openListBillsScreen() {
+        try {
+            App.setRoot("listBill.fxml");
+        } catch (IOException ex) {
+            System.out.println("Erro ao carregar a próxima tela: " + ex.getMessage());
         }
     }
 }

@@ -21,7 +21,7 @@
       </TableView>
       <Button fx:id="registerBillButton" layoutX="546.0" layoutY="893.0" mnemonicParsing="false" text="Register Bills" />
       <Label layoutX="504.0" layoutY="81.0" styleClass="title" text="List Bills" />
-      <Button fx:id="logoutButton" layoutX="832.0" layoutY="893.0" mnemonicParsing="false" text="Logout" />
-      <Button fx:id="dashboardButton" layoutX="240.0" layoutY="893.0" mnemonicParsing="false" text="Dashboard" />
+      <Button fx:id="logoutButton" layoutX="829.0" layoutY="893.0" mnemonicParsing="false" text="Logout" />
+      <Button fx:id="dashboardButton" layoutX="241.0" layoutY="893.0" mnemonicParsing="false" text="Dashboard" />
    </children>
 </AnchorPane>

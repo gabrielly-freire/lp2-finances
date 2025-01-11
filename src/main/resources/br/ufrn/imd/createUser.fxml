@@ -29,7 +29,8 @@
       <TextField fx:id="usernameField" layoutX="500.0" layoutY="570.0" prefWidth="300.0" />
       <PasswordField fx:id="password1Field" layoutX="500.0" layoutY="640.0" prefWidth="300.0" />
       <PasswordField fx:id="password2Field" layoutX="500.0" layoutY="710.0" prefWidth="300.0" />
-      <Button fx:id="submitButton" layoutX="558.0" layoutY="807.0" mnemonicParsing="false" onAction="#create" text="Submit" />
+      <Button fx:id="submitButton" layoutX="600.0" layoutY="821.0" mnemonicParsing="false" onAction="#create" text="Submit" />
       <Separator layoutX="236.0" layoutY="499.0" prefHeight="0.0" prefWidth="766.0" />
+      <Button fx:id="cancelButton" layoutX="379.0" layoutY="821.0" mnemonicParsing="false" text="Cancel" />
    </children>
 </AnchorPane>

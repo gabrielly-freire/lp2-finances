@@ -42,6 +42,7 @@ public class UpdateBillController {
     private Button cancelButton;
 
     private Bill bill;
+
     private final BillService billService = new BillService();
 
     @FXML
@@ -90,7 +91,6 @@ public class UpdateBillController {
         isPagoToggleButton.setText(String.valueOf(currentState));
     }
 
-
     private void showErrorAlert(String title, String content) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle(title);
@@ -98,16 +98,15 @@ public class UpdateBillController {
         alert.showAndWait();
     }
 
-
     private void closeWindow() {
         Stage stage = (Stage) updateButton.getScene().getWindow();
         stage.close();
     }
 
-
     public void cancelUpdate() {
         try {
             App.setRoot("listBill.fxml");
+            closeWindow();
 
         } catch (IOException e) {
             e.printStackTrace(); 

@@ -15,10 +15,16 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleButton;
 
+/**
+ * Controller class responsible for managing the bill creation screen.
+ * 
+ * @author Gabrielly Freire
+ * @version 1.0
+ */
 public class CreateBillController {
-    
+
     @FXML
-    private ChoiceBox<Category> categoryChoiceBox; 
+    private ChoiceBox<Category> categoryChoiceBox;
 
     @FXML
     private TextField descriptionField;
@@ -38,6 +44,9 @@ public class CreateBillController {
     @FXML
     private TextField valueField;
 
+    @FXML
+    private Button cancelButton;
+
     private BillService billService = new BillService();
 
     @FXML
@@ -45,6 +54,9 @@ public class CreateBillController {
         categoryChoiceBox.getItems().setAll(Category.values());
 
         isPagoToggleButton.setOnAction(event -> toggleIsPago());
+
+        submitButton.setOnAction(event -> createBill());
+        cancelButton.setOnAction(event -> openListBillsScreen(true));
     }
 
     @FXML
@@ -68,14 +80,15 @@ public class CreateBillController {
             return;
         }
 
+        if (description == null || description.isEmpty() || value == null || dueData == null || category == null) {
+            showError("Campos obrigatórios", "Preencha todos os campos obrigatórios.");
+            return;
+        }
+
         Bill bill = new Bill(null, description, value, dueData, paymentData, isPago, category);
 
-        submitButton.setOnAction(e -> {
-            System.out.println("Controller "+bill.toString());
-            billService.createBill(bill);
-            showInfo("Sucesso", "Fatura criada com sucesso!");
-            openListBillsScreen();
-        });
+        billService.createBill(bill);
+        openListBillsScreen(false);
 
     }
 
@@ -93,12 +106,14 @@ public class CreateBillController {
         alert.showAndWait();
     }
 
-    private void openListBillsScreen() {
+    private void openListBillsScreen(boolean isCancelButton) {
         try {
+            if (!isCancelButton)
+                showInfo("Sucesso", "Fatura criada com sucesso!");
             App.setRoot("listBill.fxml");
 
         } catch (IOException e) {
-            e.printStackTrace(); 
+            e.printStackTrace();
         }
     }
 

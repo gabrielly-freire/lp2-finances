@@ -30,6 +30,8 @@ public class DashboardController {
     @FXML
     public void initialize() {
         loadCategoryData();
+
+        registerBillButton.setOnAction(event -> registerBill());
     }
 
     private void loadCategoryData() {
@@ -47,8 +49,7 @@ public class DashboardController {
 
         categoryChart.setData(chartData);
         categoryChart.setTitle("Gastos por Categoria");
-        
-        registerBillButton.setOnAction(event -> registerBill());
+
     }
 
     private void registerBill() {

@@ -142,7 +142,6 @@ public class ListBillsController {
         }
     }
 
-    @FXML
     private void openEditBillScreen(Bill bill) {
         try {
             FXMLLoader loader = new FXMLLoader(App.class.getResource("updateBill.fxml"));
