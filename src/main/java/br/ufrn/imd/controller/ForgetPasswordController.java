@@ -10,7 +10,14 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 
+/**
+ * Controlador responsável pela tela de esquecimento de senha.
+ * 
+ * @author Gabrielly Freire
+ * @version 1.0
+ */
 public class ForgetPasswordController {
+
     @FXML
     private PasswordField password1Field;
 
@@ -28,58 +35,89 @@ public class ForgetPasswordController {
 
     private UserService userService = new UserService();
 
+    /**
+     * Inicializa a tela de esquecimento de senha e configura as ações dos botões.
+     */
     @FXML
     public void initialize() {
         sumitButton.setOnAction(e -> changePassword());
         cancelButton.setOnAction(e -> openLoginScreen());
     }
 
+    /**
+     * Realiza a alteração da senha do usuário, validando os dados inseridos.
+     */
     @FXML
     public void changePassword() {
         String password1 = password1Field.getText();
         String password2 = password2Field.getText();
         String username = usernameField.getText();
 
-        if (!password1.equals(password2)) {
-            Alert alert = new Alert(AlertType.ERROR);
-            alert.setTitle("Informação");
-            alert.setHeaderText("Erro ao alterar senha");
-            alert.setContentText("As senhas não coincidem");
-            alert.showAndWait();
+        if (isInputInvalid(password1, password2, username)) {
             return;
         }
 
-        if (password1.isEmpty() || password2.isEmpty() || username.isEmpty()) {
-            Alert alert = new Alert(AlertType.ERROR);
-            alert.setTitle("Informação");
-            alert.setHeaderText("Erro ao alterar senha");
-            alert.setContentText("Preencha todos os campos");
-            alert.showAndWait();
+        if (!password1.equals(password2)) {
+            showAlert(AlertType.ERROR, "Erro ao alterar senha", "As senhas não coincidem");
             return;
         }
 
         User user = userService.findByUsername(username);
         if (user == null) {
-            Alert alert = new Alert(AlertType.ERROR);
-            alert.setTitle("Informação");
-            alert.setHeaderText("Erro ao alterar senha");
-            alert.setContentText("Usuário não encontrado");
-            alert.showAndWait();
+            showAlert(AlertType.ERROR, "Erro ao alterar senha", "Usuário não encontrado");
             return;
         }
 
-        user.setPassword(password1);
-        userService.resetPassword(username, password2);
-
-        Alert alert = new Alert(AlertType.INFORMATION);
-        alert.setTitle("Informação");
-        alert.setHeaderText("Senha alterada com sucesso");
-        alert.setContentText("Sua senha foi alterada com sucesso");
-        alert.showAndWait();
-
+        updatePassword(user, password1);
+        showAlert(AlertType.INFORMATION, "Senha alterada com sucesso", "Sua senha foi alterada com sucesso");
         openLoginScreen();
     }
 
+    /**
+     * Valida se os campos de senha e nome de usuário estão preenchidos corretamente.
+     * 
+     * @param password1 A primeira senha inserida.
+     * @param password2 A segunda senha inserida.
+     * @param username O nome de usuário inserido.
+     * @return Verdadeiro se algum campo estiver inválido, caso contrário falso.
+     */
+    private boolean isInputInvalid(String password1, String password2, String username) {
+        if (password1.isEmpty() || password2.isEmpty() || username.isEmpty()) {
+            showAlert(AlertType.ERROR, "Erro ao alterar senha", "Preencha todos os campos");
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * Exibe uma mensagem de alerta para o usuário.
+     * 
+     * @param type O tipo de alerta (informativo ou de erro).
+     * @param header O cabeçalho da mensagem.
+     * @param content O conteúdo da mensagem.
+     */
+    private void showAlert(AlertType type, String header, String content) {
+        Alert alert = new Alert(type);
+        alert.setTitle("Informação");
+        alert.setHeaderText(header);
+        alert.setContentText(content);
+        alert.showAndWait();
+    }
+
+    /**
+     * Atualiza a senha do usuário no sistema.
+     * 
+     * @param user O usuário cuja senha será alterada.
+     * @param newPassword A nova senha a ser configurada.
+     */
+    private void updatePassword(User user, String newPassword) {
+        user.setPassword(newPassword);
+        userService.resetPassword(user.getUsername(), newPassword);
+    }
+
+    /**
+     * Navega para a tela de login.
+     */
     private void openLoginScreen() {
         try {
             App.setRoot("login.fxml");

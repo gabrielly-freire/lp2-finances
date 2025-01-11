@@ -21,7 +21,7 @@ Desenvolvimento de um sistema em Java com interface gráfica utilizando JavaFX. 
 
 ### **Recursos Adicionais (Escolher pelo menos 3)**
 
-- [x] Classes abstratas.
+- [ ] Classes abstratas.
 - [x] Métodos estáticos.
 - [ ] Arquivos binários.
 - [ ] Polimorfismo.

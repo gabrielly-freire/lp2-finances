@@ -24,7 +24,7 @@
       <Button fx:id="cancelButton" layoutX="650.0" layoutY="749.0" mnemonicParsing="false" onAction="#cancelUpdate" text="Cancel" />
 
       <TextField fx:id="valueField" layoutX="494.0" layoutY="346.0" prefWidth="277.0" />
-      <ToggleButton fx:id="isPagoToggleButton" layoutX="494.0" layoutY="548.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="250.0" text="false" wrapText="true" />
+      <ToggleButton fx:id="isPagoToggleButton" layoutX="494.0" layoutY="548.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="250.0" text="Não pago" wrapText="true" />
       <ChoiceBox fx:id="categoryChoiceBox" layoutX="494.0" layoutY="616.0" prefHeight="30.0" prefWidth="250.0" />
    </children>
 </AnchorPane>

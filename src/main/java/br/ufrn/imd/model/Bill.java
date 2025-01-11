@@ -5,7 +5,7 @@ import java.time.LocalDate;
 import br.ufrn.imd.model.enums.Category;
 
 /**
- * Class that represents a bill.
+ * Classe que representa uma conta.
  * 
  * @version 1.0
  */

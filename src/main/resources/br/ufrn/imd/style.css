@@ -55,3 +55,34 @@
     -fx-font-weight: bold;
     -fx-text-fill: #333;
 }
+
+/* Estilo para o botão de Update */
+.update-button {
+    -fx-background-color: #28a745; /* Verde */
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-pref-width: 80px;
+    -fx-pref-height: 30px;
+    -fx-border-radius: 5px;
+    -fx-cursor: hand;
+}
+
+/* Estilo para o botão de Delete */
+.delete-button {
+    -fx-background-color: #dc3545; /* Vermelho */
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-pref-width: 80px;
+    -fx-pref-height: 30px;
+    -fx-border-radius: 5px;
+    -fx-cursor: hand;
+}
+
+/* Alterando a aparência dos botões ao passar o mouse */
+.update-button:hover {
+    -fx-background-color: #218838; /* Verde mais escuro */
+}
+
+.delete-button:hover {
+    -fx-background-color: #c82333; /* Vermelho mais escuro */
+}

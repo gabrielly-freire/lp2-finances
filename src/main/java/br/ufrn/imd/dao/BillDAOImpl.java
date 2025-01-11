@@ -9,11 +9,11 @@ import br.ufrn.imd.model.Bill;
 import br.ufrn.imd.model.enums.Category;
 
 /**
- * Class that implements the methods of the BillDAO interface.
+ * Classe que implementa os métodos de CRUD para uma fatura no banco de dados.
  * 
  * @see BillDAO
- * @author Gabrielly Freire
- * @version 1.0
+ * @autor Gabrielly Freire
+ * @versão 1.0
  */
 public class BillDAOImpl implements BillDAO {
     private final Connection connection;
@@ -24,10 +24,10 @@ public class BillDAOImpl implements BillDAO {
     }
 
     /**
-     * Method that creates a new bill in the database.
+     * Método que cria uma nova fatura no banco de dados.
      * 
-     * @param bill The bill to be created.
-     * @throws DatabaseException If an error occurs while creating the bill.
+     * @param bill A fatura a ser criada.
+     * @throws DatabaseException Se ocorrer um erro ao criar a fatura.
      */
     @Override
     public void create(Bill bill) {
@@ -53,11 +53,11 @@ public class BillDAOImpl implements BillDAO {
     }
 
     /**
-     * Method that finds a bill by its ID.
+     * Método que busca uma fatura pelo seu ID.
      * 
-     * @param id The ID of the bill to be found.
-     * @return The bill found.
-     * @throws DatabaseException If an error occurs while searching for the bill.
+     * @param id O ID da fatura a ser encontrada.
+     * @return A fatura encontrada.
+     * @throws DatabaseException Se ocorrer um erro ao buscar a fatura.
      */
     @Override
     public Bill findById(Long id) {
@@ -83,10 +83,10 @@ public class BillDAOImpl implements BillDAO {
     }
 
     /**
-     * Method that finds all bills in the database.
+     * Método que busca todas as faturas no banco de dados.
      * 
-     * @return A list with all bills found.
-     * @throws DatabaseException If an error occurs while searching for the bills.
+     * @return Uma lista com todas as faturas encontradas.
+     * @throws DatabaseException Se ocorrer um erro ao buscar as faturas.
      */
     @Override
     public List<Bill> findAll() {
@@ -112,11 +112,11 @@ public class BillDAOImpl implements BillDAO {
     }
 
     /**
-     * Method that updates a bill in the database.
+     * Método que atualiza uma fatura no banco de dados.
      * 
-     * @param id   The ID of the bill to be updated.
-     * @param bill The bill with the new data.
-     * @throws DatabaseException If an error occurs while updating the bill.
+     * @param id   O ID da fatura a ser atualizada.
+     * @param bill A fatura com os novos dados.
+     * @throws DatabaseException Se ocorrer um erro ao atualizar a fatura.
      */
     @Override
     public void update(Long id, Bill bill) {
@@ -136,10 +136,10 @@ public class BillDAOImpl implements BillDAO {
     }
 
     /**
-     * Method that deletes a bill from the database.
+     * Método que deleta uma fatura do banco de dados.
      * 
-     * @param id The ID of the bill to be deleted.
-     * @throws DatabaseException If an error occurs while deleting the bill.
+     * @param id O ID da fatura a ser deletada.
+     * @throws DatabaseException Se ocorrer um erro ao deletar a fatura.
      */
     @Override
     public void delete(Long id) {

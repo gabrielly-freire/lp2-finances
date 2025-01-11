@@ -1,7 +1,7 @@
 package br.ufrn.imd.model;
 
 /**
- * Class responsible for representing a user.
+ * Classe que representa um usuário.
  * 
  * @author Gabrielly Freire
  * @version 1.0

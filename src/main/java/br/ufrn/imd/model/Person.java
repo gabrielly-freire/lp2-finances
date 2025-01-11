@@ -3,7 +3,7 @@ package br.ufrn.imd.model;
 import java.time.LocalDate;
 
 /**
- * Class that represents a person.
+ * Classe que representa uma pessoa.
  * 
  * @author Gabrielly Freire
  * @version 1.0

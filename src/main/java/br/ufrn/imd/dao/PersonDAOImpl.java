@@ -11,24 +11,27 @@ import br.ufrn.imd.exception.DatabaseException;
 import br.ufrn.imd.model.Person;
 
 /**
- * Interface responsible for defining the methods that must be implemented by
- * the PersonDAOImpl class.
+ * Classe responsável por implementar os métodos definidos pela interface PersonDAO.
  * 
+ * @author Gabrielly Freire
  * @version 1.0
  */
 public class PersonDAOImpl implements PersonDAO {
 
     private final Connection connection;
 
+    /**
+     * Construtor padrão que inicializa a conexão com o banco de dados.
+     */
     public PersonDAOImpl() {
         this.connection = DatabaseConnection.getConnection();
     }
 
     /**
-     * Method responsible for creating a new person in the database.
+     * Método responsável por criar uma nova pessoa no banco de dados.
      * 
-     * @param person Person object to be created.
-     * @return Long ID of the created person.
+     * @param person Objeto Person a ser criado.
+     * @return Long ID da pessoa criada.
      */
     @Override
     public Long create(Person person) {
@@ -54,11 +57,11 @@ public class PersonDAOImpl implements PersonDAO {
     }
 
     /**
-     * Method responsible for finding a person in the database by ID.
+     * Método responsável por encontrar uma pessoa no banco de dados pelo ID.
      * 
-     * @param id ID of the person to be found.
-     * @return Person object found.
-     * @throws DatabaseException if an error occurs while searching for the person.
+     * @param id ID da pessoa a ser encontrada.
+     * @return Objeto Person encontrado.
+     * @throws DatabaseException se ocorrer um erro ao buscar a pessoa.
      */
     @Override
     public Person findById(Long id) {

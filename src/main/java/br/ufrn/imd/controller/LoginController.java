@@ -13,12 +13,13 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
 /**
- * Controller class responsible for managing the login screen.
+ * Controlador responsável pela tela de login.
  * 
  * @author Gabrielly Freire
  * @version 1.0
  */
 public class LoginController {
+
     @FXML
     private Button loginButton;
 
@@ -30,60 +31,89 @@ public class LoginController {
 
     private PasswordService passwordService = new PasswordService();
 
+    /**
+     * Método que executa o login do usuário.
+     */
     @FXML
     public void login() {
-       loginButton.setOnAction(e -> {
-            String username = usernameField.getText();
-            String password = passwordField.getText();
+        String username = usernameField.getText();
+        String password = passwordField.getText();
 
-            if (username.isEmpty() || password.isEmpty()) {
-                Alert alert = new Alert(AlertType.INFORMATION);
-                alert.setTitle("Informação");
-                alert.setHeaderText("Login não realizado");
-                alert.setContentText("Login ou senha não preenchido");
-                alert.showAndWait();
-                return;
-            }
-            
+        if (isInputValid(username, password)) {
             if (passwordService.validateLogin(username, password)) {
                 openListBillsScreen();
             } else {
-                Alert alert = new Alert(AlertType.INFORMATION);
-                alert.setTitle("Informação");
-                alert.setHeaderText("Login não realizado");
-                alert.setContentText("Login ou senha incorreta");
-                alert.showAndWait();
+                showAlert("Login não realizado", "Login ou senha incorreta");
             }
-
-       });
+        } else {
+            showAlert("Login não realizado", "Login ou senha não preenchido");
+        }
     }
 
+    /**
+     * Verifica se o nome de usuário e senha foram preenchidos.
+     * 
+     * @param username O nome de usuário.
+     * @param password A senha.
+     * @return true se ambos os campos estiverem preenchidos, caso contrário, false.
+     */
+    private boolean isInputValid(String username, String password) {
+        return !(username.isEmpty() || password.isEmpty());
+    }
+
+    /**
+     * Exibe um alerta com a mensagem fornecida.
+     * 
+     * @param header O título do alerta.
+     * @param content O conteúdo do alerta.
+     */
+    private void showAlert(String header, String content) {
+        Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Informação");
+        alert.setHeaderText(header);
+        alert.setContentText(content);
+        alert.showAndWait();
+    }
+
+    /**
+     * Navega para a tela de criação de usuário.
+     * 
+     * @param event O evento gerado ao clicar no botão de criar usuário.
+     */
     @FXML
     private void openCreateUserScreen(ActionEvent event) {
-        try {
-            App.setRoot("createUser.fxml");
-
-        } catch (IOException e) {
-            e.printStackTrace(); 
-        }
+        navigateToScreen("createUser.fxml");
     }
 
+    /**
+     * Navega para a tela de recuperação de senha.
+     * 
+     * @param event O evento gerado ao clicar no botão de esquecer a senha.
+     */
     @FXML
     private void openForgetPasswordScreen(ActionEvent event) {
-        try {
-            App.setRoot("forgetPassword.fxml");
-
-        } catch (IOException e) {
-            e.printStackTrace(); 
-        }
+        navigateToScreen("forgetPassword.fxml");
     }
 
+    /**
+     * Navega para a tela de listagem de faturas.
+     */
     @FXML
     private void openListBillsScreen() {
+        navigateToScreen("listBill.fxml");
+    }
+
+    /**
+     * Método genérico para navegação entre telas.
+     * 
+     * @param fxmlFile O arquivo FXML da tela de destino.
+     */
+    private void navigateToScreen(String fxmlFile) {
         try {
-            App.setRoot("listBill.fxml");
-        } catch (IOException ex) {
-            System.out.println("Erro ao carregar a próxima tela: " + ex.getMessage());
+            App.setRoot(fxmlFile);
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("Erro ao carregar a tela: " + e.getMessage());
         }
     }
 }

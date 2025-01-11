@@ -1,7 +1,7 @@
 package br.ufrn.imd.model.enums;
 
 /**
- * Enum that represents the categories of a bill.
+ * Enum que representa as categorias de uma conta.
  * 
  * @author Gabrielly Freire
  * @version 1.0

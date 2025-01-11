@@ -5,7 +5,7 @@ import java.util.List;
 import br.ufrn.imd.model.Bill;
 
 /**
- * Interface that defines the methods that must be implemented by a BillDAO.
+ * Interface que define os métodos que devem ser implementados por uma classe que realiza operações de CRUD em uma conta.
  * 
  * @author Gabrielly Freire
  * @version 1.0

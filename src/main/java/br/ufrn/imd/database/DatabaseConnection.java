@@ -9,19 +9,19 @@ import java.sql.Statement;
 import br.ufrn.imd.exception.DatabaseException;
 
 /**
- * class responsible for managing the connection with the database.
+ * Classe responsável por gerenciar a conexão com o banco de dados.
  * 
- * @author Gabrielly Freire
- * @version 1.0
+ * @autor Gabrielly Freire
+ * @versão 1.0
  */
 public class DatabaseConnection {
 
     private static Connection conn = null;
 
     /**
-     * This method is responsible for connecting to the database.
-     * @throws DatabaseException if an error occurs while trying to connect to the database.
-     * @return
+     * Este método é responsável por estabelecer a conexão com o banco de dados.
+     * @throws DatabaseException se ocorrer um erro ao tentar conectar ao banco de dados.
+     * @return uma instância da conexão estabelecida.
      */
     public static Connection getConnection() {
         if (conn == null || isClosed()) {
@@ -40,9 +40,9 @@ public class DatabaseConnection {
     }
 
     /**
-     * This method is responsible for checking if the connection with the database is closed.
-     * @throws DatabaseException if an error occurs while trying to check if the connection is closed.
-     * @return
+     * Este método é responsável por verificar se a conexão com o banco de dados está fechada.
+     * @throws DatabaseException se ocorrer um erro ao tentar verificar se a conexão está fechada.
+     * @return true se a conexão estiver fechada, caso contrário false.
      */
     private static boolean isClosed() {
         try {
@@ -53,9 +53,8 @@ public class DatabaseConnection {
     }
     
     /**
-     * This method is responsible for closing the connection with the database.
-     * @throws DatabaseException if an error occurs while trying to close the connection.
-     * @return
+     * Este método é responsável por fechar a conexão com o banco de dados.
+     * @throws DatabaseException se ocorrer um erro ao tentar fechar a conexão.
      */
     public static void closeConnection() {
         if (conn != null) {
@@ -68,9 +67,9 @@ public class DatabaseConnection {
     }
     
     /**
-     * This method is responsible for closing a Statement (object used to execute a SQL query).
-     * @throws DatabaseException If an error occurs while trying to close a Statement.
-     * @param st
+     * Este método é responsável por fechar um Statement (objeto usado para executar uma consulta SQL).
+     * @throws DatabaseException se ocorrer um erro ao tentar fechar um Statement.
+     * @param st o Statement a ser fechado.
      */
     public static void closeStatement(Statement st) {
         if (st != null) {
@@ -83,9 +82,9 @@ public class DatabaseConnection {
     }
     
     /**
-     * This method is responsible for closing a ResultSet (object that represents the result of a SQL query).
-     * @throws DatabaseException If an error occurs while trying to close a ResultSet.
-     * @param rs
+     * Este método é responsável por fechar um ResultSet (objeto que representa o resultado de uma consulta SQL).
+     * @throws DatabaseException se ocorrer um erro ao tentar fechar um ResultSet.
+     * @param rs o ResultSet a ser fechado.
      */
     public static void closeResultSet(ResultSet rs) {
         if (rs != null) {
@@ -95,6 +94,5 @@ public class DatabaseConnection {
                 throw new DatabaseException(e.getMessage());
             }
         }
-    
     }
 }

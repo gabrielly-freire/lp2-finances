@@ -5,7 +5,7 @@ import java.util.List;
 import br.ufrn.imd.model.User;
 
 /**
- * Interface that defines the methods that must be implemented by a UserDAO.
+ * Interface que define os métodos que devem ser implementados por uma classe que realiza operações de CRUD em um usuário.
  * 
  * @author Gabrielly Freire
  * @version 1.0

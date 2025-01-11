@@ -9,7 +9,7 @@ import br.ufrn.imd.exception.DatabaseException;
 import br.ufrn.imd.model.User;
 
 /**
- * Class that implements the UserDAO interface.
+ * Classe que implementa a interface UserDAO.
  * 
  * @see UserDAO
  * @author Gabrielly Freire
@@ -24,10 +24,10 @@ public class UserDAOImpl implements UserDAO {
     }
 
     /**
-     * Method that creates a user in the database.
+     * Método que cria um usuário no banco de dados.
      * 
-     * @param user User to be created
-     * @throws DatabaseException if an error occurs while creating the user
+     * @param user Usuário a ser criado
+     * @throws DatabaseException se ocorrer um erro ao criar o usuário
      */
     @Override
     public void create(User user) {
@@ -49,11 +49,11 @@ public class UserDAOImpl implements UserDAO {
     }
 
     /**
-     * Method that finds a user by ID in the database.
+     * Método que busca um usuário pelo ID no banco de dados.
      * 
-     * @param id ID of the user to be found
-     * @return User found
-     * @throws DatabaseException if an error occurs while searching for the user
+     * @param id ID do usuário a ser encontrado
+     * @return Usuário encontrado
+     * @throws DatabaseException se ocorrer um erro ao buscar o usuário
      */
     @Override
     public User findById(Long id) {
@@ -76,11 +76,11 @@ public class UserDAOImpl implements UserDAO {
     }
 
     /**
-     * Method that finds a user by username in the database.
+     * Método que busca um usuário pelo nome de usuário no banco de dados.
      * 
-     * @param username Username of the user to be found
-     * @return User found
-     * @throws DatabaseException if an error occurs while searching for the user
+     * @param username Nome de usuário a ser encontrado
+     * @return Usuário encontrado
+     * @throws DatabaseException se ocorrer um erro ao buscar o usuário
      */
     public User findByUsername(String username) {
         PreparedStatement ps = null;
@@ -110,10 +110,10 @@ public class UserDAOImpl implements UserDAO {
     }
 
     /**
-     * Method that finds all users in the database.
+     * Método que busca todos os usuários no banco de dados.
      * 
-     * @return List of users found]
-     * @throws DatabaseException if an error occurs while searching for users
+     * @return Lista de usuários encontrados
+     * @throws DatabaseException se ocorrer um erro ao buscar os usuários
      */
     @Override
     public List<User> findAll() {
@@ -136,11 +136,11 @@ public class UserDAOImpl implements UserDAO {
     }
 
     /**
-     * Method that updates a user in the database.
+     * Método que atualiza um usuário no banco de dados.
      * 
-     * @param id   ID of the user to be updated
-     * @param user User to be updated
-     * @throws DatabaseException if an error occurs while updating the user
+     * @param id   ID do usuário a ser atualizado
+     * @param user Usuário a ser atualizado
+     * @throws DatabaseException se ocorrer um erro ao atualizar o usuário
      */
     @Override
     public void update(Long id, User user) {
@@ -156,10 +156,10 @@ public class UserDAOImpl implements UserDAO {
     }
 
     /**
-     * Method that deletes a user in the database.
+     * Método que exclui um usuário no banco de dados.
      * 
-     * @param id ID of the user to be deleted
-     * @throws DatabaseException if an error occurs while deleting the user
+     * @param id ID do usuário a ser excluído
+     * @throws DatabaseException se ocorrer um erro ao excluir o usuário
      */
     @Override
     public void delete(Long id) {
