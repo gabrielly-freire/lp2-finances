@@ -1,22 +1,31 @@
-# Compiled class files
+# Ignorar diretórios de compilação
+bin/
+out/
+
+# Ignorar arquivos de build específicos
 *.class
-
-# Build directory
-/build/
-build/**/*
-
-# Package files
 *.jar
 *.war
 *.ear
 
-# IDE specific files
-.idea/
-*.iml
-/out/
-
-target/**
-
-## VS Code
+# Ignorar arquivos de configuração do VSCode
 .vscode/
-.vscode/**/*
+
+# Ignorar arquivos temporários de compilação do Maven ou Gradle (caso use)
+target/
+build/
+
+# Ignorar arquivos de log
+*.log
+
+# Ignorar arquivos de cache do Java
+*.db
+
+# Ignorar arquivos de dependências do JavaFX (se estiver usando o SDK localmente)
+javafx-sdk/
+
+# Ignorar arquivos do IntelliJ IDEA (caso seja usado junto ao VSCode)
+.idea/
+
+# Ignorar arquivos de dependências baixados com o Maven
+.mvn/
