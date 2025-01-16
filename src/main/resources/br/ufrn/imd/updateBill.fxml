@@ -8,23 +8,22 @@
 <?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="1200.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrn.imd.controller.UpdateBillController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="1200.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrn.imd.controller.UpdateBillController">
    <children>
-      <Label layoutX="443.0" layoutY="91.0" styleClass="title" text="Update Bill" />
-      <Label layoutX="336.0" layoutY="284.0" text="Description" />
-      <Label layoutX="347.0" layoutY="353.0" text="Value" />
-      <Label layoutX="332.0" layoutY="425.0" text="Due data" />
-      <Label layoutX="325.0" layoutY="490.0" text="Payment data" />
-      <Label layoutX="338.0" layoutY="550.0" text="Is payment" />
-      <Label layoutX="347.0" layoutY="621.0" text="Category" />
-      <DatePicker fx:id="dueDataField" layoutX="494.0" layoutY="417.0" prefHeight="35.0" prefWidth="250.0" />
-      <DatePicker fx:id="paymentDataField" layoutX="494.0" layoutY="483.0" prefHeight="35.0" prefWidth="250.0" />
-      <TextField fx:id="descriptionField" layoutX="494.0" layoutY="277.0" />
-      <Button fx:id="updateButton" layoutX="451.0" layoutY="749.0" mnemonicParsing="false" onAction="#updateBill" text="Update" />
-      <Button fx:id="cancelButton" layoutX="650.0" layoutY="749.0" mnemonicParsing="false" onAction="#cancelUpdate" text="Cancel" />
-
-      <TextField fx:id="valueField" layoutX="494.0" layoutY="346.0" prefWidth="277.0" />
-      <ToggleButton fx:id="isPagoToggleButton" layoutX="494.0" layoutY="548.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="250.0" text="Não pago" wrapText="true" />
-      <ChoiceBox fx:id="categoryChoiceBox" layoutX="494.0" layoutY="616.0" prefHeight="30.0" prefWidth="250.0" />
+      <Label layoutX="449.0" layoutY="67.0" styleClass="title" text="Update Bill" />
+      <Label layoutX="346.0" layoutY="175.0" text="Description" />
+      <Label layoutX="364.0" layoutY="242.0" text="Value" />
+      <Label layoutX="364.0" layoutY="311.0" text="Due data" />
+      <Label layoutX="342.0" layoutY="385.0" text="Payment data" />
+      <Label layoutX="355.0" layoutY="457.0" text="Is payment" />
+      <Label layoutX="365.0" layoutY="528.0" text="Category" />
+      <DatePicker fx:id="dueDataField" layoutX="500.0" layoutY="304.0" prefHeight="35.0" prefWidth="250.0" />
+      <DatePicker fx:id="paymentDataField" layoutX="500.0" layoutY="378.0" prefHeight="35.0" prefWidth="250.0" />
+      <TextField fx:id="descriptionField" layoutX="500.0" layoutY="168.0" />
+      <Button fx:id="updateButton" layoutX="625.0" layoutY="634.0" mnemonicParsing="false" onAction="#updateBill" text="Update" />
+      <Button fx:id="cancelButton" layoutX="381.0" layoutY="634.0" mnemonicParsing="false" text="Cancel" />
+      <TextField fx:id="valueField" layoutX="500.0" layoutY="235.0" prefWidth="277.0" />
+      <ToggleButton fx:id="isPagoToggleButton" layoutX="500.0" layoutY="452.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="250.0" text="Não pago" wrapText="true" />
+      <ChoiceBox fx:id="categoryChoiceBox" layoutX="500.0" layoutY="523.0" prefHeight="30.0" prefWidth="250.0" />
    </children>
 </AnchorPane>

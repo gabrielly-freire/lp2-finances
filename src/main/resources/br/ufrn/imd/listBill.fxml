@@ -6,9 +6,9 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="1200.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrn.imd.controller.ListBillsController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="1200.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrn.imd.controller.ListBillsController">
    <children>
-      <TableView fx:id="billsTable" layoutX="139.0" layoutY="202.0" prefHeight="621.0" prefWidth="923.0">
+      <TableView fx:id="billsTable" layoutX="146.0" layoutY="95.0" prefHeight="496.0" prefWidth="923.0">
          <columns>
             <TableColumn fx:id="descriptionColumn" prefWidth="135.0" text="Description" />
             <TableColumn fx:id="valueColumn" prefWidth="87.0" text="Value" />
@@ -19,9 +19,9 @@
             <TableColumn fx:id="actionsColumn" prefWidth="259.0" text="Actions" />
          </columns>
       </TableView>
-      <Button fx:id="registerBillButton" layoutX="546.0" layoutY="893.0" mnemonicParsing="false" text="Register Bills" />
-      <Label layoutX="504.0" layoutY="81.0" styleClass="title" text="List Bills" />
-      <Button fx:id="logoutButton" layoutX="829.0" layoutY="893.0" mnemonicParsing="false" text="Logout" />
-      <Button fx:id="dashboardButton" layoutX="241.0" layoutY="893.0" mnemonicParsing="false" text="Dashboard" />
+      <Button fx:id="registerBillButton" layoutX="533.0" layoutY="650.0" mnemonicParsing="false" text="Register Bills" />
+      <Label layoutX="504.0" layoutY="34.0" styleClass="title" text="List Bills" />
+      <Button fx:id="logoutButton" layoutX="841.0" layoutY="650.0" mnemonicParsing="false" text="Logout" />
+      <Button fx:id="dashboardButton" layoutX="246.0" layoutY="650.0" mnemonicParsing="false" text="Dashboard" />
    </children>
 </AnchorPane>

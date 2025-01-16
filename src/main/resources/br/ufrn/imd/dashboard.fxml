@@ -5,11 +5,11 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="1200.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrn.imd.controller.DashboardController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="1200.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrn.imd.controller.DashboardController">
 
    <children>
       <Label layoutX="306.0" layoutY="48.0" prefHeight="49.0" prefWidth="514.0" styleClass="title" text="Expenses by Category" />
-      <PieChart fx:id="categoryChart" layoutX="264.0" layoutY="166.0" prefHeight="557.0" prefWidth="706.0" />
-      <Button fx:id="registerBillButton" layoutX="542.0" layoutY="824.0" mnemonicParsing="false" text="Register Bills" />
+      <PieChart fx:id="categoryChart" layoutX="268.0" layoutY="135.0" prefHeight="506.0" prefWidth="664.0" />
+      <Button fx:id="registerBillButton" layoutX="525.0" layoutY="663.0" mnemonicParsing="false" text="Register Bills" />
    </children>
 </AnchorPane>
